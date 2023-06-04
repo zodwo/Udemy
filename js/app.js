@@ -30,15 +30,14 @@ function PrevButton() {
   createInterval();
 }
 
-const sliderContent = document.querySelector(".slider-main")
+const sliderContent = document.querySelector(".slider-main");
 
 function Next() {
   slideContent.forEach((item, index) => {
     if (index == counter) {
-      sliderContent.style.transform = "translateX(0%)"
+      sliderContent.style.transform = "translateX(0%)";
     } else {
-      sliderContent.style.transform = "translateX(-50%)"
-
+      sliderContent.style.transform = "translateX(-50%)";
     }
   });
 }
@@ -46,9 +45,9 @@ function Next() {
 function Prev() {
   slideContent.forEach((item, index) => {
     if (index == counter) {
-      sliderContent.style.transform = "translateX(-50%)"
+      sliderContent.style.transform = "translateX(-50%)";
     } else {
-      sliderContent.style.transform = "translateX(0%)"
+      sliderContent.style.transform = "translateX(0%)";
     }
   });
 }
@@ -65,50 +64,63 @@ window.addEventListener("DOMContentLoaded", () => {
   createInterval();
 });
 
-// Define Pop up 
-const techHover = document.querySelector(".tech")
-const techPop = document.querySelector(".pop2")
-const buisnesHover = document.querySelector(".buisnes")
-const buisnesPopUp = document.querySelector(".right-popUP")
-const popupHover = document.querySelector(".category")
-const openPopUp = document.querySelector(".category-display-pop-up")
+// Define Pop up
+const techHover = document.querySelector(".tech");
+const techPop = document.querySelector(".pop2");
+const buisnesHover = document.querySelector(".buisnes");
+const buisnesPopUp = document.querySelector(".right-popUP");
+const popupHover = document.querySelector(".category");
+const openPopUp = document.querySelector(".category-display-pop-up");
 
 // Right pop
-techHover.addEventListener("mouseenter",() =>{
-  techPop.style.scale = "1"
-  techPop.style.display = "block"
-})
-techHover.addEventListener("mouseleave",() =>{
-  techPop.style.scale = "0.95"
-  techPop.style.display = "none"
-})
-techPop.addEventListener("mouseleave",()=>{
-  techPop.style.scale = "0.95"
-  techPop.style.display = "none"
-})
+techHover.addEventListener("mouseenter", () => {
+  techPop.style.scale = "1";
+  techPop.style.display = "block";
+});
+techHover.addEventListener("mouseleave", () => {
+  techPop.style.scale = "0.95";
+  techPop.style.display = "none";
+});
+techPop.addEventListener("mouseleave", () => {
+  techPop.style.scale = "0.95";
+  techPop.style.display = "none";
+});
 
 // left pop
-buisnesHover.addEventListener("mouseenter",() =>{
-  buisnesPopUp.style.display = "block"
-})
-buisnesHover.addEventListener("mouseleave",() =>{
-  techPop.style.scale = "0.95"
-  buisnesPopUp.style.display = "none"
-})
-buisnesPopUp.addEventListener("mouseleave",()=>{
-  techPop.style.scale = "0.95"
-  buisnesPopUp.style.display = "none"
-})
+buisnesHover.addEventListener("mouseenter", () => {
+  buisnesPopUp.style.display = "block";
+});
+buisnesHover.addEventListener("mouseleave", () => {
+  techPop.style.scale = "0.95";
+  buisnesPopUp.style.display = "none";
+});
+buisnesPopUp.addEventListener("mouseleave", () => {
+  techPop.style.scale = "0.95";
+  buisnesPopUp.style.display = "none";
+});
 
 // Menu pop
-popupHover.addEventListener("mouseenter",() =>{
-  openPopUp.style.display = "block"
-})
-popupHover.addEventListener("mouseleave",() =>{
-  techPop.style.scale = "0.95"
-  openPopUp.style.display = "none"
-})
-openPopUp.addEventListener("mouseleave",()=>{
-  techPop.style.scale = "0.95"
-  openPopUp.style.display = "none"
-})
+popupHover.addEventListener("mouseenter", () => {
+  openPopUp.style.display = "block";
+});
+popupHover.addEventListener("mouseleave", () => {
+  techPop.style.scale = "0.95";
+  openPopUp.style.display = "none";
+});
+openPopUp.addEventListener("mouseleave", () => {
+  techPop.style.scale = "0.95";
+  openPopUp.style.display = "none";
+});
+
+// Define shop cart
+const shop = document.querySelector(".shop");
+const shopcart = document.querySelector(".shop-cart");
+shop.addEventListener("mouseenter", () => {
+  shopcart.style.display = "flex";
+});
+shop.addEventListener("mouseleave", () => {
+  shopcart.style.display = "none";
+});
+openPopUp.addEventListener("mouseleave", () => {
+  shopcart.style.display = "none";
+});
