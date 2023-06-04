@@ -2,7 +2,21 @@
 * {
   font-family: "Montserrat", sans-serif;
 }
+.container {
+  max-width: 1340px;
+  width: 100%;
+  padding: 0 5px;
+  margin: auto;
+}
 
+.del {
+  position: relative;
+  cursor: default;
+}
+.del:hover{
+  color: #5624d0;
+
+}
 .cursor {
   cursor: pointer;
 }
@@ -15,4 +29,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.small2{
+  min-width: 90px !important;
+}
+
+/* Pop up animation */
+
+@keyframes popup {
+  0%{
+    scale: 0.9;
+  }
+  25%{
+    scale: 1;
+  }
 }

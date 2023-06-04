@@ -1,17 +1,10 @@
-.container {
-  max-width: 1340px;
-  width: 100%;
-  padding: 0 5px;
-  margin: auto;
-}
-
 header {
   position: sticky;
   top: 0;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   display: flex;
   z-index: 1;
-  height: 7.2rem;
+  height: 72px;
 }
 
 .navbar {
@@ -32,10 +25,10 @@ header {
   gap: 10px;
 }
 
-
 .navbar .logo a {
   display: inline-block;
-  
+  width: 91px;
+  height: 35px;
 }
 
 .navbar .logo img {
@@ -83,7 +76,7 @@ header {
 }
 .navbar .right img {
   width: 28px;
-  height: 28px;
+  height: 111px;
 }
 .navbar .right .button-wrapper button {
   width: 80px;
@@ -104,11 +97,11 @@ header {
 .navbar .right .button-wrapper .sign {
   border: 1px solid black;
   font-weight: 700;
-  background: black;
+  background-color: #1b1a1a;
   color: #fff;
 }
 .navbar .right .button-wrapper .sign:hover {
-  background-color: #1f1f1f;
+  background-color: #000;
 }
 .navbar .right .button-wrapper .globe {
   width: 40px;
@@ -117,14 +110,141 @@ header {
   border: 0.4px solid black;
 }
 
+/* ! li start */
+.category {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.gorunmez {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  text-indent: -9999px;
+}
+.category-display-pop-up {
+  padding-top: 20px;
+  min-width: 260px;
+  height: 620px;
+  padding: 5px 0;
+  position: absolute;
+  top: 75px;
+  left: 0;
+  box-shadow: 0 0 0 1px #d1d7dc, 0 2px 4px rgba(0, 0, 0, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+  background-color: #fff;
+  display: none;
+  animation: popup 1s;
+}
+
+.category-display-pop-up li a i {
+  font-size: 11px;
+}
+
+.category-display-pop-up li a {
+  font-size: 13.4px;
+  min-width: 204px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  color: #1c1d1f;
+}
+.category-display-pop-up li a:hover,
+.category:hover {
+  color: #5624d0;
+}
+
+.popup-dvlp {
+  height: 620px;
+  padding: 5px 0;
+  position: absolute;
+  left: 259px;
+  top: 0;
+  background-color: #fff;
+  display: none;
+  border-left: 1px solid #d1d7dc;
+}
+.popup-dvlp a {
+  display: block;
+  min-width: 250px !important;
+}
+.popup-dvlp i {
+  margin-left: 20px;
+}
+.popup-dvlp li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#dvlp:hover .popup-dvlp {
+  display: block;
+}
+
+/* ! li end */
+
+/*! right-popUP */
+
+.right-popUP .gorunmez {
+  top: -10px;
+  width: 100%;
+  height: 30px;
+  z-index: -1 ;
+}
+.right-popUP {
+  width: 350px;
+  background-color: #fff;
+  position: absolute;
+  top: 75px;
+  right: 0;
+  box-shadow: 0 0 0 1px #d1d7dc, 0 2px 14px rgba(0, 0, 0, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 10px 15px;
+  display: none;
+  animation: popup 1s;
+}
+.right-popUP li {
+  font-weight: 700;
+  font-size: 20px;
+  text-align: center;
+  letter-spacing: -1px;
+  height: 140px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #1c1d1f;
+}
+
+.right-popUP li a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 48px;
+  background-color: #1b1a1a;
+  color: #fff;
+  font-size: 11px !important;
+}
+.right-popUP li a:hover {
+  background: #000;
+}
+
+
+/*! right-popUP */
+
 /* Header end */
 
 /* .page -1  */
 .page-1 .slider {
   max-width: 1340px;
+  width: 100%;
   position: relative;
-  margin: auto;
   overflow: hidden;
+  margin: auto;
+  height: auto;
 }
 .slider-main {
   width: 200%;
@@ -139,6 +259,7 @@ header {
 .page-1 .slider .slider-wrapper {
   display: flex;
   overflow: hidden;
+  height: auto;
 }
 /*  */
 .page-1 .slider .slider-wrapper .slide {
@@ -147,8 +268,11 @@ header {
   position: relative;
 }
 .page-1 .slider .slider-wrapper .slimg {
+  height: 400px;
+  min-height: 0;
   height: 100%;
-  width: 100% ;
+  
+  width: 100%;
   object-fit: cover;
 }
 /*  */
@@ -181,13 +305,14 @@ header {
 }
 
 .page-1 .slider .slider-wrapper .content {
-  width: 400px;
-  height: 270px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.08);
+  width: 440px;
+  height: 245px;
   padding: 24px;
   background-color: #fff;
   position: absolute;
-  top: 24px;
-  left: 48px;
+  top: 64px;
+  left: 72px;
 }
 .page-1 .slider .slider-wrapper .slide.slide2 .content {
   height: 150px;
@@ -242,6 +367,9 @@ header {
 
 @media (max-width: 920px) {
   .del {
+    display: none;
+  }
+  .popup-dvlp i {
     display: none;
   }
 }
