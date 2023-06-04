@@ -11,6 +11,7 @@ header {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   display: flex;
   z-index: 1;
+  height: 7.2rem;
 }
 
 .navbar {
@@ -31,9 +32,15 @@ header {
   gap: 10px;
 }
 
-.navbar .logo {
-  width: 91px;
-  height: 30px;
+
+.navbar .logo a {
+  display: inline-block;
+  
+}
+
+.navbar .logo img {
+  width: 100%;
+  height: auto;
 }
 
 .navbar .left .category {

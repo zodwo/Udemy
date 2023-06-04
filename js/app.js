@@ -11,13 +11,13 @@ next.addEventListener("click", NextButton);
 prev.addEventListener("click", PrevButton);
 
 function NextButton() {
-  counter++;
   if (counter > slideContent.length - 1) {
     counter = 0;
   }
   Next();
   ClearInterval();
   createInterval();
+  counter++;
 }
 
 function PrevButton() {
@@ -64,11 +64,3 @@ function ClearInterval() {
 window.addEventListener("DOMContentLoaded", () => {
   createInterval();
 });
-
-const arr = [1,2,3,4,5,6,7,8,9]
-let log = 1
-
-arr.forEach((item)=>{
-  log *= item
-  console.log(log);
-})
