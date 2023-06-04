@@ -436,7 +436,7 @@ header {
 .page-2 .main-content {
   max-width: 1290px;
   width: 100%;
-  height: 540px;
+  min-height: 540px;
   border: 1px solid #d1d7dc;
   padding: 37px 33px;
 }
@@ -482,13 +482,32 @@ header {
   background-color: #f5f5f5;
 }
 /* Cart */
-.page-2 .main-content .card-wrapper {
+.page-2 .main-content .card-slide-wrapper {
   margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
-.page-2 .main-content .card-wrapper .card {
+.page-2 .main-content .card-wrapper .cardc {
   max-width: 273px;
+  margin-bottom: 40px;
+  cursor: pointer;
 }
+.page-2 .main-content .card-wrapper .cardc:hover .card::before{
+  content: "";
+  cursor: pointer;
+}
+
+.bgimg {
+  width: 100%;
+  height: 129px;
+  background: url("https://img-b.udemycdn.com/course/240x135/567828_67d0.jpg") no-repeat center/cover;
+}
+
+
+
 .page-2 .main-content .card-wrapper .card .score {
   display: flex;
   align-items: center;
@@ -533,7 +552,8 @@ header {
   border: 1px solid #d2d2d2;
 }
 .page-2 .main-content .card-wrapper .card .img-border img {
-  width: 100%;
+  width: 238px;
+  height: 135px;
 }
 .page-2
   .main-content
@@ -577,7 +597,7 @@ header {
   .popup-dvlp i {
     display: none;
   }
-  .page-2{
+  .page-2 {
     margin: 20px 0 !important;
   }
 }
