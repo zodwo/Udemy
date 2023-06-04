@@ -3,7 +3,9 @@
   font-family: "Montserrat", sans-serif;
 }
 
-
+body{
+    overflow-x: hidden;
+}
 
 .container {
   max-width: 1340px;
