@@ -30,14 +30,15 @@ function PrevButton() {
   createInterval();
 }
 
+const sliderContent = document.querySelector(".slider-main")
+
 function Next() {
   slideContent.forEach((item, index) => {
     if (index == counter) {
-      item.style.width = "100%";
-      sliderWrapper.style.flexDirection = "row";
+      sliderContent.style.transform = "translateX(0%)"
     } else {
-      item.style.width = 0;
-      sliderWrapper.style.flexDirection = "row-reverse";
+      sliderContent.style.transform = "translateX(-50%)"
+
     }
   });
 }
@@ -45,11 +46,9 @@ function Next() {
 function Prev() {
   slideContent.forEach((item, index) => {
     if (index == counter) {
-      sliderWrapper.style.flexDirection = "row-reverse";
-      item.style.width = "100%";
+      sliderContent.style.transform = "translateX(-50%)"
     } else {
-      item.style.width = 0;
-      sliderWrapper.style.flexDirection = "row";
+      sliderContent.style.transform = "translateX(0%)"
     }
   });
 }
@@ -63,26 +62,13 @@ function ClearInterval() {
 }
 
 window.addEventListener("DOMContentLoaded", () => {
-  Next();
   createInterval();
 });
 
-let winWIDTH = window.innerWidth;
-let itemHeight = 400;
+const arr = [1,2,3,4,5,6,7,8,9]
+let log = 1
 
-window.addEventListener("resize", () => {
-  const thisWIDTH = window.innerWidth;
-  const height = thisWIDTH / thisWIDTH;
-  let sum = itemHeight - height;
-
-  slideContent.forEach((item) => {
-
-    if (thisWIDTH < winWIDTH) {
-      item.style.height = sum + "px";
-    }
-
-    
-  });
-
-  winWIDTH = thisWIDTH;
-});
+arr.forEach((item)=>{
+  log *= item
+  console.log(log);
+})
