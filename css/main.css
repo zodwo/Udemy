@@ -204,7 +204,7 @@ header {
   padding: 10px 15px;
   display: none;
   z-index: 1;
-  ation: popup 1s;
+  animation: popup 1s;
 }
 .right-popUP li {
   font-weight: 700;
