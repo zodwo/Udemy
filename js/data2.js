@@ -13,7 +13,7 @@ const userData = [
         <img src="img/star/halfStar.png">
         `,
     peopleNumber: "(465,229)",
-    price: "89.99",
+    price: 89.99,
   },
   {
     category: "python",
@@ -29,7 +29,7 @@ const userData = [
         <img src="img/star/halfStar.png">
         `,
     peopleNumber: "(107,504)",
-    price: "89.99",
+    price: 89.99,
   },
   {
     category: "python",
@@ -45,7 +45,7 @@ const userData = [
         <img src="img/star/halfStar.png">
         `,
     peopleNumber: "(107,037)",
-    price: "89.99",
+    price: 89.99,
   },
   {
     category: "python",
@@ -90,7 +90,7 @@ const star = document.querySelector(".star-wrapper");
 const peopleNumber = document.querySelector(".nmbr-of-people");
 const price = document.querySelector(".price");
 
-userData.forEach((item, index) => {
+userData.forEach((item) => {
   let code = `
   <div class="card">
   <div class="img-border">
@@ -114,8 +114,8 @@ userData.forEach((item, index) => {
 `;
 
   mainHTML.innerHTML += code;
-  console.log(item);
-  console.log(index);
+  // console.log(item);
+  // console.log(index);
 });
 
 const shopCartWrapper = document.querySelector(".shop-cart");
@@ -127,6 +127,8 @@ const displayNone = document.querySelector(".dn");
 const allcard = document.querySelectorAll(".card");
 const cartCounter = document.querySelector(".counter");
 const totalPriceWrapper = document.querySelector(".total");
+const scrolls = document.querySelector(".shop-item-wrapper-all-wrapper");
+let currentPrice = 0;
 
 let cntnbmr = 0;
 allcard.forEach((card, index) => {
@@ -135,9 +137,8 @@ allcard.forEach((card, index) => {
       if (index == i) {
         cntnbmr += 1;
         checkCounter();
-
-        displayNone.style.display = "none";
-        let currentItem = e.currentTarget;
+        // let currentItem = e.currentTarget;
+        // console.log(currentItem);
         let b = `
             <div class="shop-item-wrapper">
             <div class="left" style="background: url(${userd.img}) no-repeat center/cover"></div>
@@ -151,22 +152,37 @@ allcard.forEach((card, index) => {
             </div>
             `;
         // console.log(currentItem);
+        function calc(itemx){
+          let x = currentPrice += +itemx.price
+          return Math.floor(x)
+        }
+        calc(userd)
+        
         shopMainCartWrapper.innerHTML += b;
-
-        if (cntnbmr == 1) {
+        if (cntnbmr >= 1) {
           totalPriceWrapper.innerHTML = `
                   <div class="total-price">
-                    <span class="current-price">Total: $335</span>
+                    <span class="current-price">Total: $${currentPrice}</span>
                     <a href="" class="btns">Go to card</a>
                   </div>
-              `;
-          console.log(totalPriceWrapper);
+          `;
+          // console.log(totalPriceWrapper);
         }
       }
+      // display none card empty
+      displayNone.style.display = "none";
+
+      // end foreach
     });
   });
 });
-checkCounter();
+
+let x = 0;
+for (i = 0; i < userData.length - 1; i++) {
+  x += 25;
+  mainHTML.style.width = x + "%";
+  // console.log(x);
+}
 
 function checkCounter() {
   if (cntnbmr == 0) {
@@ -177,20 +193,12 @@ function checkCounter() {
     cartCounter.innerHTML = cntnbmr;
   }
 
-  if (cntnbmr == 3) {
-    totalPriceWrapper.style.position = "absolute"
-  } else if (cntnbmr == 4) {
-    shopCartWrapper.style.overflowY = "scroll";
+  if (cntnbmr == 4) {
+    scrolls.style.overflowY = "scroll";
   }
 }
 
-let x = 0;
-
-for (i = 0; i < userData.length - 1; i++) {
-  x += 25;
-  mainHTML.style.width = x + "%";
-  console.log(x);
-}
+checkCounter();
 
 // divIMG.style.background = `url(${item.img}) no-repeat center/cover`;
 // headTexts.innerHTML = item.headTexts;

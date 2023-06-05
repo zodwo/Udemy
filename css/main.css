@@ -250,11 +250,11 @@ header {
   max-width: 280px;
   width: 100%;
   min-height: 100px;
-  max-height: 400px;
+  max-height: 600px;
   background-color: rgb(255, 255, 255);
-  padding: 10px;
 
   display: none;
+  /*  */
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -262,13 +262,14 @@ header {
   animation: popup 1s;
 
   overflow-x: hidden;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .shop-cart .dn{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 10px;
+  padding-top: 20px;
 }
 .shop-cart span {
   color: #6a6f73;
@@ -328,7 +329,7 @@ header {
   position: absolute;
   top: 10px;
   right: 250px;
-  padding: 2px 8px;
+  padding: 4px 8px;
   border-radius: 20px;
   background-color: #a435f0;
   display: flex;
@@ -340,24 +341,26 @@ header {
 }
 .shop-item-wrapper-all-wrapper{
   position: relative;
+  padding: 10px;
+  max-height: 360px;
+  /* overflow-y: scroll; */
 }
+
 .total{
-  width: 280px;
   left: 0;
-  bottom: 0px !important;
+  bottom: 0%;
+  width: 100%;
 }
 
 .total-price{
   position: relative;
-  width: 100%;
   left: 0;
   bottom: 0;
-  height: 115px;
   display: flex;
   flex-direction: column;
-  box-shadow: rgba(0, 0, 0, 0.15) 10px 2px 8px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   background-color: #fff;
-  padding: 0 10px;
+  padding: 10px;
 }
 .current-price{
   font-weight: 700;
