@@ -74,6 +74,7 @@ prev2.addEventListener("click", PrevSlider);
 
 let width = 0;
 
+counter = 0
 
 function NextSlider() {
   counter++;
