@@ -1,5 +1,6 @@
 const userData = [
   {
+    id: 0,
     category: "python",
     img: "https://img-b.udemycdn.com/course/240x135/567828_67d0.jpg",
     headTexts: "The Complete Python Bootcamp From Zero to Hero in Python",
@@ -17,6 +18,7 @@ const userData = [
     bestseller: false,
   },
   {
+    id: 1,
     category: "python",
     img: "https://img-b.udemycdn.com/course/240x135/543600_64d1_4.jpg",
     headTexts: "Automate the Boring Stuff with Python Programming",
@@ -34,6 +36,7 @@ const userData = [
     bestseller: false,
   },
   {
+    id: 2,
     category: "python",
     img: "https://img-b.udemycdn.com/course/240x135/950390_270f_3.jpg",
     headTexts: "Machine Learning A-Z™: AI, Python & R + ChatGPT Bonus [2023]",
@@ -51,6 +54,7 @@ const userData = [
     bestseller: true,
   },
   {
+    id: 3,
     category: "python",
     img: "https://img-b.udemycdn.com/course/240x135/2776760_f176_10.jpg",
     headTexts: "100 Days of Code: The Complete Python Pro Bootcamp for 2023",
@@ -68,6 +72,7 @@ const userData = [
     bestseller: true,
   },
   {
+    id: 4,
     category: "python",
     img: "https://img-b.udemycdn.com/course/240x135/2485240_d405_7.jpg",
     headTexts: "Python : Master Programming and Development with 15 Projects",
@@ -94,12 +99,30 @@ const rating = document.querySelector(".rating");
 const star = document.querySelector(".star-wrapper");
 const peopleNumber = document.querySelector(".nmbr-of-people");
 const price = document.querySelector(".price");
-let code;
+const shopCartWrapper = document.querySelector(".shop-cart");
+const shopMainCartWrapper = document.querySelector(
+  ".shop-item-wrapper-all-wrapper"
+);
+const displayNone = document.querySelector(".dn");
+const allcard = document.querySelectorAll(".card");
+const cartCounter = document.querySelector(".counter");
+const totalPriceWrapper = document.querySelector(".total");
+const scrolls = document.querySelector(".shop-item-wrapper-all-wrapper");
+// const allShopCarts = document.querySelectorAll(".shopcart")
 
+let code;
+let b = "";
+let click = 0;
+let currentPrice = 0;
+let idx = 0;
+let counter2 = 0;
+let cntnbmr = 0;
+
+// Sldier card
 userData.forEach((item) => {
   if (item.bestseller == true) {
     code = `
-    <div class="card shopcart ${item.category}">
+    <div class="card shopcart ${item.category}" id="${item.id}">
     <div class="img-border">
       <div class="bgimg" style="background: url(${item.img}) no-repeat center/cover"></div>
     </div>
@@ -123,7 +146,7 @@ userData.forEach((item) => {
     mainHTML.innerHTML += code;
   } else {
     code = `
-    <div class="card shopcart ${item.category}">
+    <div class="card shopcart ${item.category}" id="${item.id}"> 
     <div class="img-border">
       <div class="bgimg" style="background: url(${item.img}) no-repeat center/cover"></div>
     </div>
@@ -150,79 +173,56 @@ userData.forEach((item) => {
   // console.log(index);
 });
 
-const shopCartWrapper = document.querySelector(".shop-cart");
-const shopMainCartWrapper = document.querySelector(
-  ".shop-item-wrapper-all-wrapper"
-);
-const displayNone = document.querySelector(".dn");
-const allcard = document.querySelectorAll(".card");
-const cartCounter = document.querySelector(".counter");
-const totalPriceWrapper = document.querySelector(".total");
-const scrolls = document.querySelector(".shop-item-wrapper-all-wrapper");
-// const allShopCarts = document.querySelectorAll(".shopcart")
 
-let currentPrice = 0;
-let counter2 = 0;
-let cntnbmr = 0;
-
+// Shop card
 allcard.forEach((card, index) => {
   userData.forEach((userd, i) => {
+    let clickCART = 0
     card.addEventListener("click", (e) => {
       if (index == i) {
-        cntnbmr += 1;
-        counter2 += 1;
-        checkCounter();
-        let b = `
-            <div class="shop-item-wrapper" id="${counter2 - 1}" >
-            <div class="left" style="background: url(${userd.img}) no-repeat center/cover"></div>
-                <div class="right">
-                    <h4 class="headtexts">
-                        ${userd.headTexts}
-                    </h4>
-                    <div class="creator">${userd.user}</div> 
-                    <div class="price">$${userd.price}</div>
-            </div>
-            </div>
+        cntnbmr++;
+        counter2++;
+        clickCART++
+        if (clickCART >= 2) {
+          b = null;
+        } else {
+          checkCounter();
+          b = `
+              <div class="shop-item-wrapper" id="${counter2 - 1}" >
+              <div class="left" style="background: url(${
+                userd.img
+              }) no-repeat center/cover"></div>
+                  <div class="right">
+                      <h4 class="headtexts">
+                          ${userd.headTexts}
+                      </h4>
+                      <div class="creator">${userd.user}</div>
+                      <div class="price">$${userd.price}</div>
+              </div>
+              </div>
+              `;
+          shopMainCartWrapper.innerHTML += b;
+          const shopItemWrapper = document.querySelectorAll(".shop-item-wrapper");
+
+          function calc(itemx) {
+            let x = (currentPrice += Number(itemx.price));
+            return Math.floor(x);
+          }
+          calc(userd);
+
+          if (cntnbmr >= 0) {
+            totalPriceWrapper.innerHTML = `
+                    <div class="total-price">
+                      <span class="current-price">Total: $${currentPrice}</span>
+                      <a href="" class="btns">Go to card</a>
+                    </div>
             `;
-        const shopItemWrapper = document.querySelectorAll(".shop-item-wrapper");
-
-        function calc(itemx) {
-          let x = (currentPrice += Number(itemx.price));
-          return Math.floor(x);
+          }
+          //--------------------------------------------------------------------------------------
         }
-        calc(userd);
 
-        shopMainCartWrapper.innerHTML += b;
-
-        if (cntnbmr >= 0) {
-          totalPriceWrapper.innerHTML = `
-                  <div class="total-price">
-                    <span class="current-price">Total: $${currentPrice}</span>
-                    <a href="" class="btns">Go to card</a>
-                  </div>
-          `;
-        }
-        console.log(index);
-        //--------------------------------------------------------------------------------------
-        shopItemWrapper.forEach((total,totalIndex) =>{
-          userData.map((mapItem, mapIndex) => {
-              if (total.id == index) {
-              console.log(total.id);
-              
-            }else{
-            }
-        });
-
-        // shopItemWrapper.forEach((shopCard, shopindex) => {
-        //   // console.log(shopCard);
-        //   // console.log(shopindex);
-        // });
-
-        })
-        
+        displayNone.style.display = "none";
       }
-
-      displayNone.style.display = "none";
     });
   });
 });
