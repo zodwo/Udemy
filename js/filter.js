@@ -48,7 +48,6 @@ let Filterdatas = [
       "Want to start drawing for fun or take your craft to the next level? Explore our online drawing classes and learn pencil drawing, figure drawing, cartoon drawing, character drawing for cartoons and anime, illustration, sketching, shading and more. Take an overview course on the fundamentals of drawing or zero in on an area you’d like to improve with a specialized course. We’ve got tons of options to get — and keep — you going.",
     "button text": "Drawing",
   },
-  
 ];
 
 const headTEXT = document.querySelector(".headtext");
@@ -61,15 +60,79 @@ button.forEach((buttons, index) => {
   buttons.addEventListener("click", (e) => {
     clickedBUTTON = e.currentTarget;
 
-    if(
-        !clickedBUTTON.classList.contains("text-active") 
-    ){
-        button.forEach(btn=>{
-            btn.classList.remove("text-active")
-        })
+    if (!clickedBUTTON.classList.contains("text-active")) {
+      button.forEach((btn) => {
+        btn.classList.remove("text-active");
+      });
     }
 
-    buttons.classList.add("text-active")
+    buttons.classList.add("text-active");
+
+    Filterdatas.filter((item, index) => {
+      userData.forEach((items, indexs) => {
+        if (index == indexs) {
+          console.log(item.id);
+          console.log(items.category);
+          if (item.id != items.category) {
+            code = "";
+            mainHTML.innerHTML = code;
+          }else if(item.id == items.category){
+            console.log("SDSDLGSDGM");
+            // console.log("item " + item.id );
+            // console.log("items " + items.category );
+            // if (items.bestseller == true) {
+            //   code = `
+            //   <div class="card shopcart ${items.category}" id="${items.id}">
+            //   <div class="img-border">
+            //     <div class="bgimg" style="background: url(${items.img}) no-repeat center/cover"></div>
+            //   </div>
+            //   <div class="text-section">
+            //     <h4 class="headtexts">
+            //       ${items.headTexts}
+            //     </h4>
+            //     <div class="creator">${items.user}</div>
+            //     <div class="score">
+            //       <span class="rating">${items.rating}</span>
+            //       <div class="star-wrapper">
+            //         ${items.starImg}
+            //       </div>
+            //       <div class="nmbr-of-people">${items.peopleNumber}</div>
+            //     </div>
+            //     <div class="price">$${items.price}</div>
+            //     <div class="best">Bestseller</div>
+            //   </div>
+            // </div>
+            // `;
+            //   mainHTML.innerHTML += code;
+            // } else {
+            //   code = `
+            //   <div class="card shopcart ${items.category}" id="${items.id}"> 
+            //   <div class="img-border">
+            //     <div class="bgimg" style="background: url(${items.img}) no-repeat center/cover"></div>
+            //   </div>
+            //   <div class="text-section">
+            //     <h4 class="headtexts">
+            //       ${items.headTexts}
+            //     </h4>
+            //     <div class="creator">${items.user}</div>
+            //     <div class="score">
+            //       <span class="rating">${items.rating}</span>
+            //       <div class="star-wrapper">
+            //         ${items.starImg}
+            //       </div>
+            //       <div class="nmbr-of-people">${items.peopleNumber}</div>
+            //     </div>
+            //     <div class="price">$${items.price}</div>
+            //   </div>
+            // </div>
+            // `;
+            //   mainHTML.innerHTML += code;
+            // }
+
+          }
+        }
+      });
+    });
 
     if (buttons.id == Filterdatas[index].id) {
       headTEXT.innerHTML = Filterdatas[index]["head text"];

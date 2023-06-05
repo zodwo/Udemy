@@ -720,6 +720,8 @@ header {
   top: 35%;
   left: -18px;
   padding: 0 20px;
+  background: none !important;
+  height: 0;
   z-index: 1;
 }
 .page-2 .button-wrapper button {
