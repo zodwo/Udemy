@@ -62,10 +62,11 @@ function ClearInterval() {
 
 window.addEventListener("DOMContentLoaded", () => {
   createInterval();
+  buttonClose()
 });
 
 const page2Slider = document.querySelector(".card-slide-wrapper");
-const sldierContent2 = document.querySelectorAll(".shopcart");
+const sldierContent2 = document.querySelectorAll(".card");
 const prev2 = document.querySelector(".prev2");
 const next2 = document.querySelector(".next2");
 
@@ -74,40 +75,61 @@ prev2.addEventListener("click", PrevSlider);
 
 let width = 0;
 
-counter = 0
+let Counter = 0;
+
+function buttonClose(){
+  if(Counter <= 0){
+    prev2.style.visibility = "hidden"
+  }else{
+    prev2.style.visibility = "visible"
+  }
+
+  if(Counter >= sldierContent2.length -2){
+    next2.style.display = "none"
+  }else{
+    next2.style.display = "block"
+  }
+  console.log( Counter);
+}
 
 function NextSlider() {
-  counter++;
+  if(width < 0) width = 0
+
+  Counter++
 
   sldierContent2.forEach((item, index) => {
-    if (counter > index) {
-      counter = 0;
-      console.log(index);
+    if (Counter > sldierContent2.length -1 ) {
+      Counter = 0;
     }
-    if (counter == index) {
-        
-      width += item.offsetWidth + 30;
+    if (Counter == index) {
+      console.log("Counter " + Counter);
+      width += item.offsetWidth + 10;
       page2Slider.style.transform = "translateX(0%)";
     } else {
       page2Slider.style.transform = `translateX(-${width}px)`;
     }
   });
   console.log(width);
+  buttonClose()
 }
 
 function PrevSlider() {
-  counter--;
+  if(width < 0) width = 0
 
+  Counter--;
   sldierContent2.forEach((item, index) => {
-    if (0 > counter) {
-      counter = index;
+    if (Counter <= 0 || width < 0) {
+      Counter = 0;
+      width = 0
     }
-    if (counter == index) {
-      width -= item.offsetWidth - 30;
-      page2Slider.style.transform = `translateX(-${width}px)`;
-    } else {
+    if (Counter == index) {
+      console.log("Counter " + Counter);
+      width -= item.offsetWidth + 10;
       page2Slider.style.transform = "translateX(0%)";
+    } else {
+      page2Slider.style.transform = `translateX(-${width}px)`;
     }
   });
   console.log(width);
+  buttonClose()
 }
