@@ -14,6 +14,7 @@ const userData = [
         `,
     peopleNumber: "(465,229)",
     price: 89.99,
+    bestseller: false,
   },
   {
     category: "python",
@@ -30,6 +31,7 @@ const userData = [
         `,
     peopleNumber: "(107,504)",
     price: 89.99,
+    bestseller: false,
   },
   {
     category: "python",
@@ -46,6 +48,7 @@ const userData = [
         `,
     peopleNumber: "(107,037)",
     price: 89.99,
+    bestseller: true,
   },
   {
     category: "python",
@@ -62,6 +65,7 @@ const userData = [
         `,
     peopleNumber: "(203,321)",
     price: "74.99",
+    bestseller: true,
   },
   {
     category: "python",
@@ -78,6 +82,7 @@ const userData = [
         `,
     peopleNumber: "(13,287)",
     price: "64.99",
+    bestseller: false,
   },
 ];
 
@@ -89,31 +94,58 @@ const rating = document.querySelector(".rating");
 const star = document.querySelector(".star-wrapper");
 const peopleNumber = document.querySelector(".nmbr-of-people");
 const price = document.querySelector(".price");
+let code;
 
 userData.forEach((item) => {
-  let code = `
-  <div class="card">
-  <div class="img-border">
-    <div class="bgimg" style="background: url(${item.img}) no-repeat center/cover"></div>
-  </div>
-  <div class="text-section">
-    <h4 class="headtexts">
-      ${item.headTexts}
-    </h4>
-    <div class="creator">${item.user}</div>
-    <div class="score">
-      <span class="rating">${item.rating}</span>
-      <div class="star-wrapper">
-        ${item.starImg}
-      </div>
-      <div class="nmbr-of-people">${item.peopleNumber}</div>
+  if (item.bestseller == true) {
+    code = `
+    <div class="card shopcart ${item.category}">
+    <div class="img-border">
+      <div class="bgimg" style="background: url(${item.img}) no-repeat center/cover"></div>
     </div>
-    <div class="price">$${item.price}</div>
+    <div class="text-section">
+      <h4 class="headtexts">
+        ${item.headTexts}
+      </h4>
+      <div class="creator">${item.user}</div>
+      <div class="score">
+        <span class="rating">${item.rating}</span>
+        <div class="star-wrapper">
+          ${item.starImg}
+        </div>
+        <div class="nmbr-of-people">${item.peopleNumber}</div>
+      </div>
+      <div class="price">$${item.price}</div>
+      <div class="best">Bestseller</div>
+    </div>
   </div>
-</div>
-`;
+  `;
+    mainHTML.innerHTML += code;
+  } else {
+    code = `
+    <div class="card shopcart ${item.category}">
+    <div class="img-border">
+      <div class="bgimg" style="background: url(${item.img}) no-repeat center/cover"></div>
+    </div>
+    <div class="text-section">
+      <h4 class="headtexts">
+        ${item.headTexts}
+      </h4>
+      <div class="creator">${item.user}</div>
+      <div class="score">
+        <span class="rating">${item.rating}</span>
+        <div class="star-wrapper">
+          ${item.starImg}
+        </div>
+        <div class="nmbr-of-people">${item.peopleNumber}</div>
+      </div>
+      <div class="price">$${item.price}</div>
+    </div>
+  </div>
+  `;
+    mainHTML.innerHTML += code;
+  }
 
-  mainHTML.innerHTML += code;
   // console.log(item);
   // console.log(index);
 });
@@ -122,25 +154,26 @@ const shopCartWrapper = document.querySelector(".shop-cart");
 const shopMainCartWrapper = document.querySelector(
   ".shop-item-wrapper-all-wrapper"
 );
-const shopItemWrapper = document.querySelector(".shop-item-wrapper");
 const displayNone = document.querySelector(".dn");
 const allcard = document.querySelectorAll(".card");
 const cartCounter = document.querySelector(".counter");
 const totalPriceWrapper = document.querySelector(".total");
 const scrolls = document.querySelector(".shop-item-wrapper-all-wrapper");
-let currentPrice = 0;
+// const allShopCarts = document.querySelectorAll(".shopcart")
 
+let currentPrice = 0;
+let counter2 = 0;
 let cntnbmr = 0;
+
 allcard.forEach((card, index) => {
   userData.forEach((userd, i) => {
     card.addEventListener("click", (e) => {
       if (index == i) {
         cntnbmr += 1;
+        counter2 += 1;
         checkCounter();
-        // let currentItem = e.currentTarget;
-        // console.log(currentItem);
         let b = `
-            <div class="shop-item-wrapper">
+            <div class="shop-item-wrapper" id="${counter2 - 1}" >
             <div class="left" style="background: url(${userd.img}) no-repeat center/cover"></div>
                 <div class="right">
                     <h4 class="headtexts">
@@ -151,28 +184,45 @@ allcard.forEach((card, index) => {
             </div>
             </div>
             `;
-        // console.log(currentItem);
-        function calc(itemx){
-          let x = currentPrice += +itemx.price
-          return Math.floor(x)
+        const shopItemWrapper = document.querySelectorAll(".shop-item-wrapper");
+
+        function calc(itemx) {
+          let x = (currentPrice += Number(itemx.price));
+          return Math.floor(x);
         }
-        calc(userd)
-        
+        calc(userd);
+
         shopMainCartWrapper.innerHTML += b;
-        if (cntnbmr >= 1) {
+
+        if (cntnbmr >= 0) {
           totalPriceWrapper.innerHTML = `
                   <div class="total-price">
                     <span class="current-price">Total: $${currentPrice}</span>
                     <a href="" class="btns">Go to card</a>
                   </div>
           `;
-          // console.log(totalPriceWrapper);
         }
-      }
-      // display none card empty
-      displayNone.style.display = "none";
+        console.log(index);
+        //--------------------------------------------------------------------------------------
+        shopItemWrapper.forEach((total,totalIndex) =>{
+          userData.map((mapItem, mapIndex) => {
+              if (total.id == index) {
+              console.log(total.id);
+              
+            }else{
+            }
+        });
 
-      // end foreach
+        // shopItemWrapper.forEach((shopCard, shopindex) => {
+        //   // console.log(shopCard);
+        //   // console.log(shopindex);
+        // });
+
+        })
+        
+      }
+
+      displayNone.style.display = "none";
     });
   });
 });
@@ -181,29 +231,20 @@ let x = 0;
 for (i = 0; i < userData.length - 1; i++) {
   x += 25;
   mainHTML.style.width = x + "%";
-  // console.log(x);
 }
 
 function checkCounter() {
-  if (cntnbmr == 0) {
+  if (counter2 == 0) {
     cartCounter.style.display = "none";
-    cartCounter.innerHTML = cntnbmr;
+    cartCounter.innerHTML = counter2;
   } else {
     cartCounter.style.display = "block";
-    cartCounter.innerHTML = cntnbmr;
+    cartCounter.innerHTML = counter2;
   }
 
-  if (cntnbmr == 4) {
+  if (counter2 == 4) {
     scrolls.style.overflowY = "scroll";
   }
 }
 
 checkCounter();
-
-// divIMG.style.background = `url(${item.img}) no-repeat center/cover`;
-// headTexts.innerHTML = item.headTexts;
-// user.innerHTML = item.user;
-// rating.innerHTML = item.rating;
-// star.innerHTML = item.starImg;
-// peopleNumber.innerHTML = item.peopleNumber;
-// price.innerHTML = item.price;
