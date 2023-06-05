@@ -115,8 +115,9 @@ openPopUp.addEventListener("mouseleave", () => {
 // Define shop cart
 const shop = document.querySelector(".shop");
 const shopcart = document.querySelector(".shop-cart");
+
 shop.addEventListener("mouseenter", () => {
-  shopcart.style.display = "flex";
+  shopcart.style.display = "block";
 });
 shop.addEventListener("mouseleave", () => {
   shopcart.style.display = "none";

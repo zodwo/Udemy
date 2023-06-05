@@ -119,7 +119,7 @@ header {
   position: absolute;
   top: -10px;
   left: 0;
-  width: 100%;
+  width: 110%;
   text-indent: -9999px;
   height: 40px;
   z-index: -1;
@@ -240,7 +240,7 @@ header {
 /* ! SHOP CART */
 
 .shop:hover .shop-cart {
-  display: flex !important;
+  display: block !important;
 }
 
 .shop-cart {
@@ -250,6 +250,7 @@ header {
   max-width: 280px;
   width: 100%;
   min-height: 100px;
+  max-height: 400px;
   background-color: rgb(255, 255, 255);
   padding: 10px;
 
@@ -259,6 +260,15 @@ header {
   justify-content: center;
   z-index: 1;
   animation: popup 1s;
+
+  overflow-x: hidden;
+}
+.shop-cart .dn{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
 }
 .shop-cart span {
   color: #6a6f73;
@@ -269,12 +279,105 @@ header {
   font-weight: 700;
 }
 
-.shop-cart .gorunmez {
-  top: -20px;
+.shop .gorunmez {
+  width: 100px;
+  top: 50px;
+  left: auto !important;
+  right: 255px !important;
   height: 33px;
-  z-index: -2;
+  z-index: 1;
 }
 
+.shop-item-wrapper{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #d1d7dc;
+  cursor: pointer;
+}
+.shop-item-wrapper  .left{
+  flex-basis: 100%;
+    width: 50px;
+    height: 60px;
+}
+.shop-item-wrapper .creator {
+  font-size: 12px;
+  font-weight: 500;
+}
+  .shop-item-wrapper .headtexts {
+    font-size: 13px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.shop-item-wrapper .right {
+  display: flex;
+  flex-direction: column;
+  align-items: last baseline;
+  gap: 5px;
+}
+.shop-item-wrapper .right .price{
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.counter{
+  position: absolute;
+  top: 10px;
+  right: 250px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  background-color: #a435f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  font-size: 13px;
+}
+.shop-item-wrapper-all-wrapper{
+  position: relative;
+}
+.total{
+  width: 280px;
+  left: 0;
+  bottom: 0px !important;
+}
+
+.total-price{
+  position: relative;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 115px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.15) 10px 2px 8px;
+  background-color: #fff;
+  padding: 0 10px;
+}
+.current-price{
+  font-weight: 700;
+  font-size: 18px;
+  color: #2f2f2f !important;
+  margin-top: 10px;
+}
+
+.btns{
+  width: 100%;
+  height: 40px;
+  background-color: #202020;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff !important;
+}
+.btns:hover{
+  background-color: #000;
+}
 /* ! SHOP CART */
 
 /* Header end */
@@ -488,22 +591,32 @@ header {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
+  overflow: hidden;
 }
 
-.page-2 .main-content .card-wrapper .cardc {
-  max-width: 273px;
+
+.page-2 .main-content .card-wrapper .card {
+  min-width: 180px;
   margin-bottom: 40px;
   cursor: pointer;
+  position: relative;
 }
-.page-2 .main-content .card-wrapper .cardc:hover .card::before{
+.page-2 .main-content .card-wrapper .card:hover:before{
   content: "";
-  cursor: pointer;
+  position: absolute;
+  background-color: #6a6f7332;
+  height: 130px;
+  width: 100%;
+  z-index: 1;
+  
 }
+
 
 .bgimg {
   width: 100%;
   height: 129px;
-  background: url("https://img-b.udemycdn.com/course/240x135/567828_67d0.jpg") no-repeat center/cover;
+  /* background: url("https://img-b.udemycdn.com/course/240x135/567828_67d0.jpg") no-repeat center/cover; */
+  position: relative;
 }
 
 

@@ -91,7 +91,6 @@ const peopleNumber = document.querySelector(".nmbr-of-people");
 const price = document.querySelector(".price");
 
 userData.forEach((item, index) => {
-
   let code = `
   <div class="card">
   <div class="img-border">
@@ -114,31 +113,84 @@ userData.forEach((item, index) => {
 </div>
 `;
 
-
   mainHTML.innerHTML += code;
   console.log(item);
   console.log(index);
 });
-let x = 0
 
-for (i = 0; i < userData.length - 1; i++) {
-    x += 25 
-    mainHTML.style.width = x +"%"
-    console.log(x);
+const shopCartWrapper = document.querySelector(".shop-cart");
+const shopMainCartWrapper = document.querySelector(
+  ".shop-item-wrapper-all-wrapper"
+);
+const shopItemWrapper = document.querySelector(".shop-item-wrapper");
+const displayNone = document.querySelector(".dn");
+const allcard = document.querySelectorAll(".card");
+const cartCounter = document.querySelector(".counter");
+const totalPriceWrapper = document.querySelector(".total");
+
+let cntnbmr = 0;
+allcard.forEach((card, index) => {
+  userData.forEach((userd, i) => {
+    card.addEventListener("click", (e) => {
+      if (index == i) {
+        cntnbmr += 1;
+        checkCounter();
+
+        displayNone.style.display = "none";
+        let currentItem = e.currentTarget;
+        let b = `
+            <div class="shop-item-wrapper">
+            <div class="left" style="background: url(${userd.img}) no-repeat center/cover"></div>
+                <div class="right">
+                    <h4 class="headtexts">
+                        ${userd.headTexts}
+                    </h4>
+                    <div class="creator">${userd.user}</div> 
+                    <div class="price">$${userd.price}</div>
+            </div>
+            </div>
+            `;
+        // console.log(currentItem);
+        shopMainCartWrapper.innerHTML += b;
+
+        if (cntnbmr == 1) {
+          totalPriceWrapper.innerHTML = `
+                  <div class="total-price">
+                    <span class="current-price">Total: $335</span>
+                    <a href="" class="btns">Go to card</a>
+                  </div>
+              `;
+          console.log(totalPriceWrapper);
+        }
+      }
+    });
+  });
+});
+checkCounter();
+
+function checkCounter() {
+  if (cntnbmr == 0) {
+    cartCounter.style.display = "none";
+    cartCounter.innerHTML = cntnbmr;
+  } else {
+    cartCounter.style.display = "block";
+    cartCounter.innerHTML = cntnbmr;
+  }
+
+  if (cntnbmr == 3) {
+    totalPriceWrapper.style.position = "absolute"
+  } else if (cntnbmr == 4) {
+    shopCartWrapper.style.overflowY = "scroll";
+  }
 }
 
+let x = 0;
 
-
-
-
-
-
-
-
-
-
-
-
+for (i = 0; i < userData.length - 1; i++) {
+  x += 25;
+  mainHTML.style.width = x + "%";
+  console.log(x);
+}
 
 // divIMG.style.background = `url(${item.img}) no-repeat center/cover`;
 // headTexts.innerHTML = item.headTexts;
