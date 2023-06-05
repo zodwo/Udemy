@@ -179,6 +179,24 @@ const userData = [
     price: "89.99",
     bestseller: false,
   },
+  {
+    id: 10,
+    category: "python",
+    img: "https://img-b.udemycdn.com/course/240x135/692188_9da7_30.jpg",
+    headTexts: "The Python Mega Course: Learn Python in 60 Days with 20 Apps",
+    user: "Ardit Sulce",
+    rating: "4.6",
+    starImg: `
+        <img src="img/star/FullStar.png">
+        <img src="img/star/FullStar.png">
+        <img src="img/star/FullStar.png">
+        <img src="img/star/FullStar.png">
+        <img src="img/star/halfStar.png">
+        `,
+    peopleNumber: "(62,264)",
+    price: "89.99",
+    bestseller: false,
+  },
 ];
 
 const mainHTML = document.querySelector(".card-slide-wrapper");
