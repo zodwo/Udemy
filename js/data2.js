@@ -99,17 +99,6 @@ const rating = document.querySelector(".rating");
 const star = document.querySelector(".star-wrapper");
 const peopleNumber = document.querySelector(".nmbr-of-people");
 const price = document.querySelector(".price");
-const shopCartWrapper = document.querySelector(".shop-cart");
-const shopMainCartWrapper = document.querySelector(
-  ".shop-item-wrapper-all-wrapper"
-);
-const displayNone = document.querySelector(".dn");
-const allcard = document.querySelectorAll(".card");
-const cartCounter = document.querySelector(".counter");
-const totalPriceWrapper = document.querySelector(".total");
-const scrolls = document.querySelector(".shop-item-wrapper-all-wrapper");
-// const allShopCarts = document.querySelectorAll(".shopcart")
-
 let code;
 let b = "";
 let click = 0;
@@ -118,7 +107,7 @@ let idx = 0;
 let counter2 = 0;
 let cntnbmr = 0;
 
-// Sldier card
+
 userData.forEach((item) => {
   if (item.bestseller == true) {
     code = `
@@ -173,8 +162,19 @@ userData.forEach((item) => {
   // console.log(index);
 });
 
+const shopCartWrapper = document.querySelector(".shop-cart");
+const shopMainCartWrapper = document.querySelector(
+  ".shop-item-wrapper-all-wrapper"
+);
+const displayNone = document.querySelector(".dn");
+const allcard = document.querySelectorAll(".card");
+const cartCounter = document.querySelector(".counter");
+const totalPriceWrapper = document.querySelector(".total");
+const scrolls = document.querySelector(".shop-item-wrapper-all-wrapper");
+// const allShopCarts = document.querySelectorAll(".shopcart")
 
-// Shop card
+
+
 allcard.forEach((card, index) => {
   userData.forEach((userd, i) => {
     let clickCART = 0
