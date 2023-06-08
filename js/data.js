@@ -609,7 +609,7 @@ const userData = [
     bestseller: false,
   },
   {
-    id: 33,
+    id: 34,
     category: "js",
     img: "https://img-b.udemycdn.com/course/240x135/2410958_2ad5_3.jpg",
     headTexts: "CSS & JavaScript - Certification Course for Beginners",
@@ -627,7 +627,7 @@ const userData = [
     bestseller: false,
   },
   {
-    id: 33,
+    id: 35,
     category: "js",
     img: "https://img-b.udemycdn.com/course/240x135/3291142_8f0c_5.jpg",
     headTexts: "https://img-b.udemycdn.com/course/240x135/3291142_8f0c_5.jpg",
