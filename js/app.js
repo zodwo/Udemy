@@ -90,7 +90,7 @@ class UI {
     const shopItemWrapper = document.querySelectorAll(".shop-item-wrapper");
 
     const isAlreadyAdded = Array.from(shopItemWrapper).some((item) => {
-      console.log(+item.id);
+      // console.log(+item.id);
       return item.id === currentTarget.id;
     });
 

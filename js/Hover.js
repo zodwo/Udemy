@@ -52,12 +52,12 @@ openPopUp.addEventListener("mouseleave", () => {
 const shop = document.querySelector(".shop");
 const shopcart = document.querySelector(".shop-cart");
 
-// shop.addEventListener("mouseenter", () => {
-//   shopcart.style.display = "block";
-// });
-// shop.addEventListener("mouseleave", () => {
-//   shopcart.style.display = "none";
-// });
-// openPopUp.addEventListener("mouseleave", () => {
-//   shopcart.style.display = "none";
-// });
+shop.addEventListener("mouseenter", () => {
+  shopcart.style.display = "block";
+});
+shop.addEventListener("mouseleave", () => {
+  shopcart.style.display = "none";
+});
+openPopUp.addEventListener("mouseleave", () => {
+  shopcart.style.display = "none";
+});

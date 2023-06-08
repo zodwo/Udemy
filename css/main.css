@@ -297,7 +297,10 @@ header {
   margin-bottom: 15px;
   border-bottom: 1px solid #d1d7dc;
   cursor: pointer;
+  transition: 0.2s;
 }
+
+
 .shop-item-wrapper .left {
   flex-basis: 100%;
   width: 50px;
