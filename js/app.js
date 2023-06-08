@@ -1,4 +1,3 @@
-
 const page2Sliderr = document.querySelector(".card-slide-wrapper");
 const divIMG = document.querySelector(".bgimg");
 const headTexts = document.querySelector(".headtexts");
@@ -17,6 +16,7 @@ const ShopScroll = document.querySelector(".shop-item-wrapper-all-wrapper");
 let code;
 let InShopCart;
 let ShopCounter = 0;
+let sum = 0;
 
 // const allShopCarts = document.querySelectorAll(".shopcart")
 
@@ -71,17 +71,16 @@ class UI {
       `;
         page2Sliderr.innerHTML += code;
       }
-
       // console.log(item);
       // console.log(index);
     });
   }
 
-  static  addToShopCart() {
+  static addToShopCart() {
     const allcard = document.querySelectorAll(".card");
     allcard.forEach((card, cardIndex) => {
       card.addEventListener("click", (e) => {
-        UI.addShopItem(cardIndex,e);
+        UI.addShopItem(cardIndex, e);
       });
     });
   }
@@ -89,21 +88,17 @@ class UI {
   static addShopItem(cardIndex, e) {
     const currentTarget = e.currentTarget;
     const shopItemWrapper = document.querySelectorAll(".shop-item-wrapper");
-  
+
     const isAlreadyAdded = Array.from(shopItemWrapper).some((item) => {
       console.log(+item.id);
       return item.id === currentTarget.id;
     });
-  
 
     if (isAlreadyAdded) {
       return;
     }
-  
-    ShopCounter++
-    cartNumber.innerHTML = ShopCounter
-    cartNumber.style.display = "block"
-    
+    //call the cart
+
     userData.forEach((card, dataIndex) => {
       if (cardIndex === dataIndex) {
         InShopCart = `
@@ -116,13 +111,37 @@ class UI {
             </div>
           </div>
         `;
+        UI.ShowShopCart(card.price);
       }
     });
-  
     shopInnerItem.innerHTML += InShopCart;
     listEmpty.style.display = "none";
   }
-  
+
+  static ShowShopCart(price) {
+    ShopCounter++;
+    cartNumber.innerHTML = ShopCounter;
+    cartNumber.style.display = "block";
+
+    const shopCartPrice = price
+
+    function ShopCartPrice (shopCartPrice){
+      sum += parseFloat(shopCartPrice)
+      return sum.toString().slice(0,6)
+    }
+
+    if (ShopCounter > 0) {
+      totalPriceWrapper.innerHTML = `
+              <div class="total-price">
+                <span class="current-price">Total: $${ShopCartPrice(shopCartPrice)}</span>
+                <a href="" class="btns">Go to card</a>
+              </div>
+      `;
+    }
+    if(ShopCounter >= 4){
+      ShopScroll.style.overflowY = "scroll"
+    }
+  }
 }
 
 UI.showSlideCard();
