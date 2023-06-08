@@ -22,54 +22,57 @@ let sum = 0;
 
 class UI {
   static showSlideCard() {
-    userData.forEach((item) => {
-      if (item.bestseller == true) {
-        code = `
-        <div class="card shopcart ${item.category}" id="${item.id}">
-        <div class="img-border">
-        <div class="bgimg" style="background: url(${item.img}) no-repeat center/cover"></div>
+    page2Sliderr.innerHTML = '';
+    userData.forEach((item, indexsin) => {
+      if (item.category === "python") {
+        if (item.bestseller == true) {
+          code = `
+          <div class="card shopcart ${item.category}" id="${item.id}">
+          <div class="img-border">
+          <div class="bgimg" style="background: url(${item.img}) no-repeat center/cover"></div>
+          </div>
+          <div class="text-section">
+            <h4 class="headtexts">
+              ${item.headTexts}
+              </h4>
+              <div class="creator">${item.user}</div>
+              <div class="score">
+              <span class="rating">${item.rating}</span>
+              <div class="star-wrapper">
+                ${item.starImg}
+              </div>
+              <div class="nmbr-of-people">${item.peopleNumber}</div>
+            </div>
+            <div class="price">$${item.price}</div>
+            <div class="best">Bestseller</div>
+          </div>
         </div>
-        <div class="text-section">
-          <h4 class="headtexts">
-            ${item.headTexts}
+        `;
+          page2Sliderr.innerHTML += code;
+        } else {
+          code = `
+          <div class="card shopcart ${item.category}" id="${item.id}"> 
+          <div class="img-border">
+            <div class="bgimg" style="background: url(${item.img}) no-repeat center/cover"></div>
+          </div>
+          <div class="text-section">
+            <h4 class="headtexts">
+              ${item.headTexts}
             </h4>
             <div class="creator">${item.user}</div>
             <div class="score">
-            <span class="rating">${item.rating}</span>
-            <div class="star-wrapper">
-              ${item.starImg}
+              <span class="rating">${item.rating}</span>
+              <div class="star-wrapper">
+                ${item.starImg}
+              </div>
+              <div class="nmbr-of-people">${item.peopleNumber}</div>
             </div>
-            <div class="nmbr-of-people">${item.peopleNumber}</div>
+            <div class="price">$${item.price}</div>
           </div>
-          <div class="price">$${item.price}</div>
-          <div class="best">Bestseller</div>
         </div>
-      </div>
-      `;
-        page2Sliderr.innerHTML += code;
-      } else {
-        code = `
-        <div class="card shopcart ${item.category}" id="${item.id}"> 
-        <div class="img-border">
-          <div class="bgimg" style="background: url(${item.img}) no-repeat center/cover"></div>
-        </div>
-        <div class="text-section">
-          <h4 class="headtexts">
-            ${item.headTexts}
-          </h4>
-          <div class="creator">${item.user}</div>
-          <div class="score">
-            <span class="rating">${item.rating}</span>
-            <div class="star-wrapper">
-              ${item.starImg}
-            </div>
-            <div class="nmbr-of-people">${item.peopleNumber}</div>
-          </div>
-          <div class="price">$${item.price}</div>
-        </div>
-      </div>
-      `;
-        page2Sliderr.innerHTML += code;
+        `;
+          page2Sliderr.innerHTML += code;
+        }
       }
       // console.log(item);
       // console.log(index);
@@ -123,28 +126,31 @@ class UI {
     cartNumber.innerHTML = ShopCounter;
     cartNumber.style.display = "block";
 
-    const shopCartPrice = price
+    const shopCartPrice = price;
 
-    function ShopCartPrice (shopCartPrice){
-      sum += parseFloat(shopCartPrice)
-      return sum.toString().slice(0,6)
+    function ShopCartPrice(shopCartPrice) {
+      sum += parseFloat(shopCartPrice);
+      return sum.toString().slice(0, 6);
     }
 
     if (ShopCounter > 0) {
       totalPriceWrapper.innerHTML = `
               <div class="total-price">
-                <span class="current-price">Total: $${ShopCartPrice(shopCartPrice)}</span>
+                <span class="current-price">Total: $${ShopCartPrice(
+                  shopCartPrice
+                )}</span>
                 <a href="" class="btns">Go to card</a>
               </div>
       `;
     }
-    if(ShopCounter >= 4){
-      ShopScroll.style.overflowY = "scroll"
+    if (ShopCounter >= 4) {
+      ShopScroll.style.overflowY = "scroll";
     }
   }
 }
 
 UI.showSlideCard();
+
 setTimeout(() => {
   UI.addToShopCart();
-}, 100);
+}, 200);

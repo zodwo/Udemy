@@ -57,7 +57,7 @@ const button = document.querySelectorAll(".filter-wrapper button");
 
 button.forEach((buttons, index) => {
   buttons.addEventListener("click", () => {
-    page2Slider.style.transform = "translateX(0%)";
+    // !
     clickedBUTTON = buttons;
 
     if (!clickedBUTTON.classList.contains("text-active")) {
@@ -74,14 +74,18 @@ button.forEach((buttons, index) => {
       parTEXT.innerHTML = Filterdatas[index]["paragraph text"];
       buttTEXT.innerHTML = "Explore " + Filterdatas[index]["button text"];
     }
+
+    page2Slider.style.transform = "translateX(0%)";
+    btnCounter = 0;
+    width = 0
   });
 });
 
 function filterCategory() {
-  currentButton = clickedBUTTON.id;
   page2Slider.innerHTML = "";
-  userData.forEach((item) => {
-    if (currentButton == item.category) {
+
+  userData.forEach((item, index) => {
+    if (clickedBUTTON.id === item.category) {
       if (item.bestseller == true) {
         code = `
         <div class="card shopcart ${item.category}" id="${item.id}">
@@ -132,6 +136,4 @@ function filterCategory() {
       }
     }
   });
-
-  // page2Slider.innerHTML += code;
 }

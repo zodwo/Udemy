@@ -64,7 +64,6 @@ function ClearInterval() {
 
 
 const page2Slider = document.querySelector(".card-slide-wrapper");
-const sldierContent2 = document.querySelectorAll(".card");
 const prev2 = document.querySelector(".prev2");
 const next2 = document.querySelector(".next2");
 
@@ -77,7 +76,8 @@ let btnCounter = 0;
 
 
 function NextSlider() {
-  if(width < 0) width = 0
+const sldierContent2 = document.querySelectorAll(".card");
+if(width < 0) width = 0
   btnCounter++
 
   sldierContent2.forEach((item, index) => {
@@ -95,7 +95,8 @@ function NextSlider() {
 }
 
 function PrevSlider() {
-  if(width < 0) width = 0
+const sldierContent2 = document.querySelectorAll(".card");
+if(width < 0) width = 0
 
   btnCounter--;
   sldierContent2.forEach((item, index) => {
@@ -114,8 +115,10 @@ function PrevSlider() {
   buttonClose()
 }
 
+
 function buttonClose(){
-  if(btnCounter == 0){
+const sldierContent2 = document.querySelectorAll(".card");
+if(btnCounter == 0){
     prev2.style.visibility = "hidden"
   }else{
     prev2.style.visibility = "visible"
@@ -130,6 +133,8 @@ function buttonClose(){
 
 
 window.addEventListener("DOMContentLoaded", () => {
-  buttonClose()
   createInterval();
+ setInterval(() => {
+  buttonClose()
+ }, 200);
 });
