@@ -57,6 +57,7 @@ const button = document.querySelectorAll(".filter-wrapper button");
 
 button.forEach((buttons, index) => {
   buttons.addEventListener("click", () => {
+    page2Slider.style.transform = "translateX(0%)";
     clickedBUTTON = buttons;
 
     if (!clickedBUTTON.classList.contains("text-active")) {
@@ -66,7 +67,7 @@ button.forEach((buttons, index) => {
     }
 
     buttons.classList.add("text-active");
-
+    filterCategory();
 
     if (buttons.id == Filterdatas[index].id) {
       headTEXT.innerHTML = Filterdatas[index]["head text"];
@@ -75,3 +76,62 @@ button.forEach((buttons, index) => {
     }
   });
 });
+
+function filterCategory() {
+  currentButton = clickedBUTTON.id;
+  page2Slider.innerHTML = "";
+  userData.forEach((item) => {
+    if (currentButton == item.category) {
+      if (item.bestseller == true) {
+        code = `
+        <div class="card shopcart ${item.category}" id="${item.id}">
+        <div class="img-border">
+        <div class="bgimg" style="background: url(${item.img}) no-repeat center/cover"></div>
+        </div>
+        <div class="text-section">
+          <h4 class="headtexts">
+            ${item.headTexts}
+            </h4>
+            <div class="creator">${item.user}</div>
+            <div class="score">
+            <span class="rating">${item.rating}</span>
+            <div class="star-wrapper">
+              ${item.starImg}
+            </div>
+            <div class="nmbr-of-people">${item.peopleNumber}</div>
+          </div>
+          <div class="price">$${item.price}</div>
+          <div class="best">Bestseller</div>
+        </div>
+      </div>
+      `;
+        page2Sliderr.innerHTML += code;
+      } else {
+        code = `
+        <div class="card shopcart ${item.category}" id="${item.id}"> 
+        <div class="img-border">
+          <div class="bgimg" style="background: url(${item.img}) no-repeat center/cover"></div>
+        </div>
+        <div class="text-section">
+          <h4 class="headtexts">
+            ${item.headTexts}
+          </h4>
+          <div class="creator">${item.user}</div>
+          <div class="score">
+            <span class="rating">${item.rating}</span>
+            <div class="star-wrapper">
+              ${item.starImg}
+            </div>
+            <div class="nmbr-of-people">${item.peopleNumber}</div>
+          </div>
+          <div class="price">$${item.price}</div>
+        </div>
+      </div>
+      `;
+        page2Sliderr.innerHTML += code;
+      }
+    }
+  });
+
+  // page2Slider.innerHTML += code;
+}

@@ -105,7 +105,7 @@ function PrevSlider() {
     }
     if (btnCounter == index) {
       // console.log("btnCounter " + btnCounter);
-      width -= item.offsetWidth + 12;
+      width -= item.offsetWidth + 10;
       page2Slider.style.transform = "translateX(0%)";
     } else {
       page2Slider.style.transform = `translateX(-${width}px)`;

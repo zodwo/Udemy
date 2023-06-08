@@ -197,5 +197,274 @@ const userData = [
       price: "89.99",
       bestseller: false,
     },
+    {
+        id: 11,
+        category: "excel",
+        img: "https://img-b.udemycdn.com/course/240x135/793796_0e89_2.jpg",
+        headTexts: "Microsoft Excel - Excel from Beginner to Advanced",
+        user: "Kyle Prew",
+        rating: "4.6",
+        starImg: `
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/halfStar.png">
+            `,
+        peopleNumber: "(378,151)",
+        price: "89.99",
+        bestseller: true,
+      },
+      {
+        id: 12,
+        category: "excel",
+        img: "https://img-b.udemycdn.com/course/240x135/2605732_e3d5_3.jpg",
+        headTexts: "Zero to Hero in Microsoft Excel: Complete Excel guide 2023",
+        user: "Start-Tech-Academy",
+        rating: "4.5",
+        starImg: `
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/halfStar.png">
+            `,
+        peopleNumber: "(17,369)",
+        price: "89.99",
+        bestseller: false,
+      },
+      {
+        id: 13,
+        category: "excel",
+        img: "https://img-b.udemycdn.com/course/240x135/2070737_3af1_4.jpg",
+        headTexts: "Microsoft Excel Weekender Crash Course",
+        user: "Start-Tech-Academy",
+        rating: "4.4",
+        starImg: `
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/halfStar.png">
+            `,
+        peopleNumber: "(7,654)",
+        price: "64.99",
+        bestseller: false,
+      },
+      {
+        id: 14,
+        category: "excel",
+        img: "https://img-b.udemycdn.com/course/240x135/3011572_33ad_2.jpg",
+        headTexts: "Microsoft Excel - Learn MS EXCEL For DATA Analysis",
+        user: "Yassin Marco",
+        rating: "4.3",
+        starImg: `
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/halfStar.png">
+            `,
+        peopleNumber: "(4,874)",
+        price: "24.99",
+        bestseller: false,
+      },
+      {
+        id: 15,
+        category: "excel",
+        img: "https://img-b.udemycdn.com/course/240x135/3338560_f31f.jpg",
+        headTexts: "Microsoft Excel -Basic Excel/ Advanced Excel Formulas",
+        user: "Yassin Marco",
+        rating: "4.3",
+        starImg: `
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            `,
+        peopleNumber: "(3,845)",
+        price: "49.99",
+        bestseller: false,
+      },
+      {
+        id: 16,
+        category: "excel",
+        img: "https://img-b.udemycdn.com/course/240x135/321410_d9c5_4.jpg",
+        headTexts: "Beginner to Pro in Excel: Financial Modeling and Valuation",
+        user: "360 Careers",
+        rating: "4.5",
+        starImg: `
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/halfStar.png">
+            `,
+        peopleNumber: "(46,676)",
+        price: "129.99",
+        bestseller: true,
+      },
+      {
+        id: 17,
+        category: "excel",
+        img: "https://img-b.udemycdn.com/course/240x135/3338560_f31f.jpg",
+        headTexts: "Microsoft Excel -Basic Excel/ Advanced Excel Formulas",
+        user: "Yassin Marco",
+        rating: "4.3",
+        starImg: `
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/halfStar.png">
+            `,
+        peopleNumber: "(1,845)",
+        price: "54.99",
+        bestseller: false,
+      },
+      {
+        id: 18,
+        category: "excel",
+        img: "https://img-b.udemycdn.com/course/240x135/3057290_6754_9.jpg",
+        headTexts: "Microsoft Excel Beginner to Advanced w/ Data Analysis 101",
+        user: "Irfan Sharif",
+        rating: "4.5",
+        starImg: `
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/halfStar.png">
+            `,
+        peopleNumber: "(4,007)",
+        price: "69.99",
+        bestseller: false,
+      },
+      {
+        id: 19,
+        category: "excel",
+        img: "https://img-b.udemycdn.com/course/240x135/977438_476d_10.jpg",
+        headTexts: "Microsoft Excel - Data Analysis with Excel Pivot Tables",
+        user: "Maven Analytics",
+        rating: "4.7",
+        starImg: `
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/halfStar.png">
+            `,
+        peopleNumber: "(50,164)",
+        price: "74.99",
+        bestseller: true,
+      },
+      {
+        id: 20,
+        category: "webdev",
+        img: "https://img-b.udemycdn.com/course/240x135/1565838_e54e_16.jpg",
+        headTexts: "The Complete 2023 Web Development Bootcamp",
+        user: "Dr.Angela Yu",
+        rating: "4.7",
+        starImg: `
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/halfStar.png">
+            `,
+        peopleNumber: "(291,538)",
+        price: "89.99",
+        bestseller: true,
+      },
+      {
+        id: 21,
+        category: "webdev",
+        img: "	https://img-b.udemycdn.com/course/240x135/625204_436a_3.jpg",
+        headTexts: "The Web Developer Bootcamp 2023",
+        user: "Colt Steele",
+        rating: "4.7",
+        starImg: `
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/halfStar.png">
+            `,
+        peopleNumber: "(259,525)",
+        price: "89.99",
+        bestseller: false,
+      },
+      {
+        id: 22,
+        category: "webdev",
+        img: "https://img-b.udemycdn.com/course/240x135/965528_737d_7.jpg",
+        headTexts: "Web Development Masterclass - Online Certification Course",
+        user: "YouAccel Traning",
+        rating: "4.5",
+        starImg: `
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/halfStar.png">
+            `,
+        peopleNumber: "(9,095)",
+        price: "89.99",
+        bestseller: false,
+      },
+      {
+        id: 23,
+        category: "webdev",
+        img: "https://img-b.udemycdn.com/course/240x135/764164_de03_5.jpg",
+        headTexts: "The Complete Web Developer Course 3.0",
+        user: "Rob Pervical",
+        rating: "4.5",
+        starImg: `
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/halfStar.png">
+            `,
+        peopleNumber: "(71,273)",
+        price: "74.99",
+        bestseller: false,
+      },
+      {
+        id: 24,
+        category: "webdev",
+        img: "	https://img-b.udemycdn.com/course/240x135/1415652_ad99_4.jpg",
+        headTexts: "Practical Web Development: 22 Courses in 1",
+        user: "Creative Online School",
+        rating: "4.2",
+        starImg: `
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/halfStar.png">
+            `,
+        peopleNumber: "(4,145)",
+        price: "79.99",
+        bestseller: false,
+      },
+      {
+        id: 25,
+        category: "webdev",
+        img: "	https://img-b.udemycdn.com/course/240x135/1415652_ad99_4.jpg",
+        headTexts: "Practical Web Development: 22 Courses in 1",
+        user: "Creative Online School",
+        rating: "4.2",
+        starImg: `
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/FullStar.png">
+            <img src="img/star/halfStar.png">
+            `,
+        peopleNumber: "(4,145)",
+        price: "79.99",
+        bestseller: false,
+      },
   ];
   
