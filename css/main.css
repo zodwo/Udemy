@@ -303,7 +303,7 @@ header {
 
 .shop-item-wrapper .left {
   flex-basis: 100%;
-  width: 50px;
+  max-width: 73px;
   height: 60px;
 }
 .shop-item-wrapper .creator {
