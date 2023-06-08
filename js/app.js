@@ -17,12 +17,12 @@ let code;
 let InShopCart;
 let ShopCounter = 0;
 let sum = 0;
-
+let Id_Counter = 0;
 // const allShopCarts = document.querySelectorAll(".shopcart")
 
 class UI {
   static showSlideCard() {
-    page2Sliderr.innerHTML = '';
+    page2Sliderr.innerHTML = "";
     userData.forEach((item, indexsin) => {
       if (item.category === "python") {
         if (item.bestseller == true) {
@@ -74,8 +74,6 @@ class UI {
           page2Sliderr.innerHTML += code;
         }
       }
-      // console.log(item);
-      // console.log(index);
     });
   }
 
@@ -83,12 +81,13 @@ class UI {
     const allcard = document.querySelectorAll(".card");
     allcard.forEach((card, cardIndex) => {
       card.addEventListener("click", (e) => {
-        UI.addShopItem(cardIndex, e);
+        UI.addShopItem(cardIndex, e, card.id);
       });
     });
   }
 
-  static addShopItem(cardIndex, e) {
+  static addShopItem(cardIndex, e, x) {
+    Id_Counter = +x;
     const currentTarget = e.currentTarget;
     const shopItemWrapper = document.querySelectorAll(".shop-item-wrapper");
 
@@ -103,7 +102,7 @@ class UI {
     //call the cart
 
     userData.forEach((card, dataIndex) => {
-      if (cardIndex === dataIndex) {
+      if (Id_Counter == dataIndex) {
         InShopCart = `
           <div class="shop-item-wrapper" id="${card.id}">
             <div class="left" style="background: url(${card.img}) no-repeat center/cover"></div>

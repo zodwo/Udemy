@@ -47,17 +47,3 @@ openPopUp.addEventListener("mouseleave", () => {
   techPop.style.scale = "0.95";
   openPopUp.style.display = "none";
 });
-
-// Define shop cart
-const shop = document.querySelector(".shop");
-const shopcart = document.querySelector(".shop-cart");
-
-shop.addEventListener("mouseenter", () => {
-  shopcart.style.display = "block";
-});
-shop.addEventListener("mouseleave", () => {
-  shopcart.style.display = "none";
-});
-openPopUp.addEventListener("mouseleave", () => {
-  shopcart.style.display = "none";
-});

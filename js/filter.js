@@ -74,10 +74,11 @@ button.forEach((buttons, index) => {
       parTEXT.innerHTML = Filterdatas[index]["paragraph text"];
       buttTEXT.innerHTML = "Explore " + Filterdatas[index]["button text"];
     }
-
-    page2Slider.style.transform = "translateX(0%)";
-    btnCounter = 0;
+    
     width = 0
+    btnCounter = 0;
+    page2Slider.style.transform = "translateX(0%)";
+    UI.addToShopCart()
   });
 });
 
