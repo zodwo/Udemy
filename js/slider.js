@@ -3,6 +3,7 @@ const slideContent = document.querySelectorAll(".slide");
 const sliderImg = document.querySelector(".slimg");
 const prev = document.querySelector(".prev");
 const next = document.querySelector(".next");
+const sliderContent = document.querySelector(".slider-main");
 
 let counter = 0;
 let interval;
@@ -29,8 +30,6 @@ function PrevButton() {
   ClearInterval();
   createInterval();
 }
-
-const sliderContent = document.querySelector(".slider-main");
 
 function Next() {
   slideContent.forEach((item, index) => {
@@ -60,10 +59,9 @@ function ClearInterval() {
   clearInterval(interval);
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  createInterval();
-  buttonClose()
-});
+
+//----------------------------------------------------------------------------------------------------------------
+
 
 const page2Slider = document.querySelector(".card-slide-wrapper");
 const sldierContent2 = document.querySelectorAll(".card");
@@ -74,62 +72,64 @@ next2.addEventListener("click", NextSlider);
 prev2.addEventListener("click", PrevSlider);
 
 let width = 0;
+let btnCounter = 0;
 
-let Counter = 0;
 
-function buttonClose(){
-  if(Counter <= 0){
-    prev2.style.visibility = "hidden"
-  }else{
-    prev2.style.visibility = "visible"
-  }
-
-  if(Counter >= sldierContent2.length -2){
-    next2.style.display = "none"
-  }else{
-    next2.style.display = "block"
-  }
-  console.log( Counter);
-}
 
 function NextSlider() {
   if(width < 0) width = 0
-
-  Counter++
+  btnCounter++
 
   sldierContent2.forEach((item, index) => {
-    if (Counter > sldierContent2.length -1 ) {
-      Counter = 0;
+    if (btnCounter > sldierContent2.length -1 ) {
+      btnCounter = 0;
     }
-    if (Counter == index) {
-      console.log("Counter " + Counter);
+    if (btnCounter == index) {
       width += item.offsetWidth + 10;
       page2Slider.style.transform = "translateX(0%)";
     } else {
       page2Slider.style.transform = `translateX(-${width}px)`;
     }
   });
-  console.log(width);
   buttonClose()
 }
 
 function PrevSlider() {
   if(width < 0) width = 0
 
-  Counter--;
+  btnCounter--;
   sldierContent2.forEach((item, index) => {
-    if (Counter <= 0 || width < 0) {
-      Counter = 0;
+    if (btnCounter <= 0 || width < 0) {
+      btnCounter = 0;
       width = 0
     }
-    if (Counter == index) {
-      console.log("Counter " + Counter);
-      width -= item.offsetWidth + 10;
+    if (btnCounter == index) {
+      // console.log("btnCounter " + btnCounter);
+      width -= item.offsetWidth + 12;
       page2Slider.style.transform = "translateX(0%)";
     } else {
       page2Slider.style.transform = `translateX(-${width}px)`;
     }
   });
-  console.log(width);
   buttonClose()
 }
+
+function buttonClose(){
+  if(btnCounter == 0){
+    prev2.style.visibility = "hidden"
+  }else{
+    prev2.style.visibility = "visible"
+  }
+
+  if(btnCounter >= sldierContent2.length -3){
+    next2.style.display = "none"
+  }else{
+    next2.style.display = "block"
+  }
+}
+
+
+window.addEventListener("DOMContentLoaded", () => {
+  buttonClose()
+  createInterval();
+});

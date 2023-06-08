@@ -1,63 +1,131 @@
 
+const page2Sliderr = document.querySelector(".card-slide-wrapper");
+const divIMG = document.querySelector(".bgimg");
+const headTexts = document.querySelector(".headtexts");
+const user = document.querySelector(".creator");
+const rating = document.querySelector(".rating");
+const star = document.querySelector(".star-wrapper");
+const peopleNumber = document.querySelector(".nmbr-of-people");
+const price = document.querySelector(".price");
+const shopCartWrapper = document.querySelector(".shop-cart");
+const shopInnerItem = document.querySelector(".shop-item-wrapper-all-wrapper");
+const listEmpty = document.querySelector(".dn");
+const cartNumber = document.querySelector(".counter");
+const totalPriceWrapper = document.querySelector(".total");
+const ShopScroll = document.querySelector(".shop-item-wrapper-all-wrapper");
 
-// Define Pop up
-const techHover = document.querySelector(".tech");
-const techPop = document.querySelector(".pop2");
-const buisnesHover = document.querySelector(".buisnes");
-const buisnesPopUp = document.querySelector(".right-popUP");
-const popupHover = document.querySelector(".category");
-const openPopUp = document.querySelector(".category-display-pop-up");
+let code;
+let InShopCart;
+let ShopCounter = 0;
 
-// Right pop
-techHover.addEventListener("mouseenter", () => {
-  techPop.style.scale = "1";
-  techPop.style.display = "block";
-});
-techHover.addEventListener("mouseleave", () => {
-  techPop.style.scale = "0.95";
-  techPop.style.display = "none";
-});
-techPop.addEventListener("mouseleave", () => {
-  techPop.style.scale = "0.95";
-  techPop.style.display = "none";
-});
+// const allShopCarts = document.querySelectorAll(".shopcart")
 
-// left pop
-buisnesHover.addEventListener("mouseenter", () => {
-  buisnesPopUp.style.display = "block";
-});
-buisnesHover.addEventListener("mouseleave", () => {
-  techPop.style.scale = "0.95";
-  buisnesPopUp.style.display = "none";
-});
-buisnesPopUp.addEventListener("mouseleave", () => {
-  techPop.style.scale = "0.95";
-  buisnesPopUp.style.display = "none";
-});
+class UI {
+  static showSlideCard() {
+    userData.forEach((item) => {
+      if (item.bestseller == true) {
+        code = `
+        <div class="card shopcart ${item.category}" id="${item.id}">
+        <div class="img-border">
+        <div class="bgimg" style="background: url(${item.img}) no-repeat center/cover"></div>
+        </div>
+        <div class="text-section">
+          <h4 class="headtexts">
+            ${item.headTexts}
+            </h4>
+            <div class="creator">${item.user}</div>
+            <div class="score">
+            <span class="rating">${item.rating}</span>
+            <div class="star-wrapper">
+              ${item.starImg}
+            </div>
+            <div class="nmbr-of-people">${item.peopleNumber}</div>
+          </div>
+          <div class="price">$${item.price}</div>
+          <div class="best">Bestseller</div>
+        </div>
+      </div>
+      `;
+        page2Sliderr.innerHTML += code;
+      } else {
+        code = `
+        <div class="card shopcart ${item.category}" id="${item.id}"> 
+        <div class="img-border">
+          <div class="bgimg" style="background: url(${item.img}) no-repeat center/cover"></div>
+        </div>
+        <div class="text-section">
+          <h4 class="headtexts">
+            ${item.headTexts}
+          </h4>
+          <div class="creator">${item.user}</div>
+          <div class="score">
+            <span class="rating">${item.rating}</span>
+            <div class="star-wrapper">
+              ${item.starImg}
+            </div>
+            <div class="nmbr-of-people">${item.peopleNumber}</div>
+          </div>
+          <div class="price">$${item.price}</div>
+        </div>
+      </div>
+      `;
+        page2Sliderr.innerHTML += code;
+      }
 
-// Menu pop
-popupHover.addEventListener("mouseenter", () => {
-  openPopUp.style.display = "block";
-});
-popupHover.addEventListener("mouseleave", () => {
-  techPop.style.scale = "0.95";
-  openPopUp.style.display = "none";
-});
-openPopUp.addEventListener("mouseleave", () => {
-  techPop.style.scale = "0.95";
-  openPopUp.style.display = "none";
-});
+      // console.log(item);
+      // console.log(index);
+    });
+  }
 
-// Define shop cart
-const shop = document.querySelector(".shop");
-const shopcart = document.querySelector(".shop-cart");
+  static  addToShopCart() {
+    const allcard = document.querySelectorAll(".card");
+    allcard.forEach((card, cardIndex) => {
+      card.addEventListener("click", (e) => {
+        UI.addShopItem(cardIndex,e);
+      });
+    });
+  }
 
-shop.addEventListener("mouseenter", () => {
-  shopcart.style.display = "block";
-});
-shop.addEventListener("mouseleave", () => {
-  shopcart.style.display = "none";
-});
-openPopUp.addEventListener("mouseleave", () => {
-  shopcart.style.display = "none";
-});
+  static addShopItem(cardIndex, e) {
+    const currentTarget = e.currentTarget;
+    const shopItemWrapper = document.querySelectorAll(".shop-item-wrapper");
+  
+    const isAlreadyAdded = Array.from(shopItemWrapper).some((item) => {
+      console.log(+item.id);
+      return item.id === currentTarget.id;
+    });
+  
+
+    if (isAlreadyAdded) {
+      return;
+    }
+  
+    ShopCounter++
+    cartNumber.innerHTML = ShopCounter
+    cartNumber.style.display = "block"
+    
+    userData.forEach((card, dataIndex) => {
+      if (cardIndex === dataIndex) {
+        InShopCart = `
+          <div class="shop-item-wrapper" id="${card.id}">
+            <div class="left" style="background: url(${card.img}) no-repeat center/cover"></div>
+            <div class="right">
+              <h4 class="headtexts">${card.headTexts}</h4>
+              <div class="creator">${card.user}</div>
+              <div class="price">$${card.price}</div>
+            </div>
+          </div>
+        `;
+      }
+    });
+  
+    shopInnerItem.innerHTML += InShopCart;
+    listEmpty.style.display = "none";
+  }
+  
+}
+
+UI.showSlideCard();
+setTimeout(() => {
+  UI.addToShopCart();
+}, 100);

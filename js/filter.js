@@ -53,12 +53,11 @@ let Filterdatas = [
 const headTEXT = document.querySelector(".headtext");
 const parTEXT = document.querySelector(".ptext");
 const buttTEXT = document.querySelector(".atext");
-
 const button = document.querySelectorAll(".filter-wrapper button");
 
 button.forEach((buttons, index) => {
-  buttons.addEventListener("click", (e) => {
-    clickedBUTTON = e.currentTarget;
+  buttons.addEventListener("click", () => {
+    clickedBUTTON = buttons;
 
     if (!clickedBUTTON.classList.contains("text-active")) {
       button.forEach((btn) => {
@@ -68,71 +67,6 @@ button.forEach((buttons, index) => {
 
     buttons.classList.add("text-active");
 
-    Filterdatas.filter((item, index) => {
-      userData.forEach((items, indexs) => {
-        if (index == indexs) {
-          console.log(item.id);
-          console.log(items.category);
-          if (item.id != items.category) {
-            code = "";
-            mainHTML.innerHTML = code;
-          }else if(item.id == items.category){
-            console.log("SDSDLGSDGM");
-            // console.log("item " + item.id );
-            // console.log("items " + items.category );
-            // if (items.bestseller == true) {
-            //   code = `
-            //   <div class="card shopcart ${items.category}" id="${items.id}">
-            //   <div class="img-border">
-            //     <div class="bgimg" style="background: url(${items.img}) no-repeat center/cover"></div>
-            //   </div>
-            //   <div class="text-section">
-            //     <h4 class="headtexts">
-            //       ${items.headTexts}
-            //     </h4>
-            //     <div class="creator">${items.user}</div>
-            //     <div class="score">
-            //       <span class="rating">${items.rating}</span>
-            //       <div class="star-wrapper">
-            //         ${items.starImg}
-            //       </div>
-            //       <div class="nmbr-of-people">${items.peopleNumber}</div>
-            //     </div>
-            //     <div class="price">$${items.price}</div>
-            //     <div class="best">Bestseller</div>
-            //   </div>
-            // </div>
-            // `;
-            //   mainHTML.innerHTML += code;
-            // } else {
-            //   code = `
-            //   <div class="card shopcart ${items.category}" id="${items.id}"> 
-            //   <div class="img-border">
-            //     <div class="bgimg" style="background: url(${items.img}) no-repeat center/cover"></div>
-            //   </div>
-            //   <div class="text-section">
-            //     <h4 class="headtexts">
-            //       ${items.headTexts}
-            //     </h4>
-            //     <div class="creator">${items.user}</div>
-            //     <div class="score">
-            //       <span class="rating">${items.rating}</span>
-            //       <div class="star-wrapper">
-            //         ${items.starImg}
-            //       </div>
-            //       <div class="nmbr-of-people">${items.peopleNumber}</div>
-            //     </div>
-            //     <div class="price">$${items.price}</div>
-            //   </div>
-            // </div>
-            // `;
-            //   mainHTML.innerHTML += code;
-            // }
-
-          }
-        }
-      });
-    });
 
     if (buttons.id == Filterdatas[index].id) {
       headTEXT.innerHTML = Filterdatas[index]["head text"];
