@@ -3,12 +3,16 @@
   font-family: "Montserrat", sans-serif;
 }
 
+.mobile-prew{
+  display: none !important;
+}
+
 body{
     overflow-x: hidden;
 }
 
 .container {
-  max-width: 1340px;
+  max-width: 1415px;
   width: 100%;
   padding: 0 30px;
   margin: auto;

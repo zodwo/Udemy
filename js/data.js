@@ -630,7 +630,7 @@ const userData = [
     id: 35,
     category: "js",
     img: "https://img-b.udemycdn.com/course/240x135/3291142_8f0c_5.jpg",
-    headTexts: "https://img-b.udemycdn.com/course/240x135/3291142_8f0c_5.jpg",
+    headTexts: "The Complete JavaScript Course 2023: From Zero to Expert!",
     user: "Ivan Larenco",
     rating: "4.3",
     starImg: `
